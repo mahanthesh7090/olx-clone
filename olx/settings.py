@@ -142,4 +142,4 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.ERROR: 'danger',  # 'danger' for Bootstrap compatibility
 }
-
+LOGIN_URL = '/login/'
