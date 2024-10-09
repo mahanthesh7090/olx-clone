@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate,logout
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 from .models import Cars,Bikes,Mobiles,Applications
 
 
@@ -24,10 +24,10 @@ def home(request):
 
     }
     return render(request,'home.html',context)
-
+@login_required
 def sell(request):
     return render(request,'sell.html')
-
+@login_required
 def cars(request):
     
 
@@ -65,7 +65,7 @@ def cars(request):
     else:
         return render(request,'cars.html')
 
-
+@login_required
 def bikes(request):
     if request.method == 'POST':
         bike = Bikes()
