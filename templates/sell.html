@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Your Ad</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        ul li a:hover {
+            background-color: #f1f1f1;
+        }
+
+        ul li a i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .back-button:hover {
+            color: #007BFF; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="{% url 'home' %}" class="back-button">←</a>
+        <h1>POST YOUR AD</h1>
+        <ul>
+            <li><a href="{% url 'cars' %}"><i>🚗</i> Cars</a></li>
+            <li><a href="{% url 'mobiles' %}"><i>📱</i> Mobiles</a></li>
+            <li><a href="{% url 'bikes' %}"><i>🏍</i> Bikes</a></li>
+            <li><a href="{% url 'applications' %}"><i>🔌</i> Electronics & Appliances</a></li>
+            <li><a href="#"><i>🛋</i> Furniture</a></li>
+            <li><a href="#"><i>🏠</i> Properties</a></li>
+            
+            <li><a href="#"><i>💼</i> Jobs</a></li>
+            
+            
+            <li><a href="#"><i>🚚</i> Commercial Vehicles & Spares</a></li>
+            
+            <li><a href="#"><i>👗</i> Fashion</a></li>
+            <li><a href="#"><i>📚</i> Books, Sports & Hobbies</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

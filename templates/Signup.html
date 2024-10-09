@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLX | Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-whKydFSFKA9HAFt02SYTNPYlr68eFS3CJZlN1VqNQw9Ifjw4ARy3HYVblCI2Vn4p" crossorigin="anonymous">
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBY5H4goQ5aw9Q5rK4OF5StEYZXM9IlJN7x96D3QQ9C8+KGS" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-QY6yhF6hfJbsZZAwSPQ9IU+pTH+jCqzN6+O9BIIT9+JdI5Iph+XfsvmLk4O5pD90" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .signup-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .signup-btn {
+            background-color: #1d00da;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .signup-btn:hover {
+            background-color: #0d96d1;
+            transition: background-color 0.3s ease;
+        }
+        .social-login {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .social-login img {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .social-login img:hover {
+            transform: scale(1.1);
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            color: #777;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #ccc;
+        }
+        .divider::before {
+            margin-right: 10px;
+        }
+        .divider::after {
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl, { autohide: true });
+            });
+            toastList.forEach(toast => toast.show());
+        });
+    </script>
+</head>
+<body>
+
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <p>Already a member? <a href="{% url 'login' %}">Log In</a></p>
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Create Password" required>
+        <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+    <div class="divider">or sign up with</div>
+    <div class="social-login">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        <img src="data:image/png;base64,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" alt="Google">
+    </div>
+</div>
+<div aria-live="polite" aria-atomic="true" class="position-relative" style="z-index: 9999;">
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="toast align-items-center text-bg-{{ message.tags }} border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+              <div class="d-flex">
+                <div class="toast-body">
+                  {{ message }}
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+    </div>
+</div>
+</body>
+
+</html>

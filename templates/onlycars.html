@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<main>  
+    <div class="ads_section">
+         <h2>Cars</h2>
+         <div class="post_section">
+            {% for car in cars %}
+             <div class="post_ads">
+                 <div class="img">
+                     <a href="#"><img src="{{ car.image.url }}" alt=""></a>
+                 </div>
+                 <div class="postinfo_section">
+                     <div class="postinfo">
+                         <h3> {{ car.price }}</h3>
+                         <h3> {{ car.title }} </h3>
+                         <div class="loc_time">
+                             <p>{{ car.location }}, {{ car.address }}</p>
+                            
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bagesection">
+                     <div class="leftbage">
+                         <i class="fa-solid fa-bolt-lightning"></i>
+                         <p>FEATURED</p>
+                     </div>
+                     <div class="rightbage">
+                         <i class="fa-regular fa-heart"></i>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+
+              
+
+
+ 
+
+             
+
+
+             <!-- ===================== -->
+
+         </div>    
+     </div>
+
+
+     <div class="btn">
+         <div class="loadbtn">
+             <p>Load more</p>
+         </div>
+     </div>
+ </main>
+
+ {% endblock content %}

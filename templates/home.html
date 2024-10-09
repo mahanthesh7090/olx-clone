@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<main>  
+    <div class="ads_section">
+         <h2>Fresh recommendations</h2>
+         <div class="post_section">
+            {% for car in cars %}
+             <div class="post_ads">
+                 <div class="img">
+                     <a href="{% url 'details' 'car' car.id %}"><img src="{{ car.image.url }}" alt=""></a>
+                 </div>
+                 <div class="postinfo_section">
+                     <div class="postinfo">
+                         <h3> {{ car.price }}</h3>
+                         <h4>{{car.title}}</h4>
+                         <div class="loc_time">
+                             <p>{{car.location}} {{car.address}}</p>
+                            
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bagesection">
+                     <div class="leftbage">
+                         <i class="fa-solid fa-bolt-lightning"></i>
+                         <p>FEATURED</p>
+                     </div>
+                     <div class="rightbage">
+                         <i class="fa-regular fa-heart"></i>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+
+              {% for bike in bikes %}
+             <div class="post_ads">
+                 <div class="img">
+                     <a href="{% url 'details' 'bike' bike.id %}"><img src="{{ bike.image.url }}" alt=""></a>
+                 </div>
+                 <div class="postinfo_section">
+                     <div class="postinfo">
+                         <h3> {{ bike.price }}</h3>
+                         <h4>{{bike.title}}</h4>
+                         <div class="loc_time">
+                             <p>{{bike.location}} {{bike.address}}</p>
+                            
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bagesection">
+                     <div class="leftbage">
+                         <i class="fa-solid fa-bolt-lightning"></i>
+                         <p>FEATURED</p>
+                     </div>
+                     <div class="rightbage">
+                         <i class="fa-regular fa-heart"></i>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+             
+             {% for mobile in mobiles %}
+             <div class="post_ads">
+                 <div class="img">
+                     <a href="#"><img src="{{ mobile.image.url }}" alt=""></a>
+                 </div>
+                 <div class="postinfo_section">
+                     <div class="postinfo">
+                         <h3> {{ mobile.price }}</h3>
+                         <h4>{{mobile.title}}</h4>
+                         <div class="loc_time">
+                             <p>{{mobile.location}} {{mobile.address}}</p>
+                            
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bagesection">
+                     <div class="leftbage">
+                         <i class="fa-solid fa-bolt-lightning"></i>
+                         <p>FEATURED</p>
+                     </div>
+                     <div class="rightbage">
+                         <i class="fa-regular fa-heart"></i>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+
+             {% for application in applications %}
+             <div class="post_ads">
+                 <div class="img">
+                     <a href="#"><img src="{{ application.image.url }}" alt=""></a>
+                 </div>
+                 <div class="postinfo_section">
+                     <div class="postinfo">
+                         <h3> {{ application.price }}</h3>
+                         <h4>{{application.title}}</h4>
+                         <div class="loc_time">
+                             <p>{{application.location}} {{application.address}}</p>
+                            
+                         </div>
+                     </div>
+                 </div>
+                 <div class="bagesection">
+                     <div class="leftbage">
+                         <i class="fa-solid fa-bolt-lightning"></i>
+                         <p>FEATURED</p>
+                     </div>
+                     <div class="rightbage">
+                         <i class="fa-regular fa-heart"></i>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+             
+
+
+ 
+
+             
+
+
+             <!-- ===================== -->
+
+         </div>    
+     </div>
+
+
+     <div class="btn">
+         <div class="loadbtn">
+             <p>Load more</p>
+         </div>
+     </div>
+ </main>
+
+ {% endblock content %}
