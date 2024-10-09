@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate,logout
 from django.contrib import messages
-from flask_login import login_required
+
 from .models import Cars,Bikes,Mobiles,Applications
 
 
